@@ -59,7 +59,7 @@ final class QRCoder: NSObject, QRCoderProtocol {
         }
         
         let parameters: [String: Any] = [
-            "inputURL": url.data(using: .utf8)!,
+            "inputMessage": url.data(using: .utf8)!,
             //ここの文字はなんでも良さそう
             "inputCorrectionLevel": "H"
         ]

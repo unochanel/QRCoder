@@ -33,7 +33,7 @@
                         <viewLayoutGuide key="safeArea" id="HeI-i8-QmV"/>
                     </view>
                     <connections>
-                        <outlet property="backButton" destination="4ci-oK-IYo" id="zax-AH-XPG"/>
+                        <outlet property="backButton" destination="4ci-oK-IYo" id="aLw-u1-Tva"/>
                         <outlet property="containerView" destination="9Pm-b3-SHa" id="Dbx-8P-5fA"/>
                     </connections>
                 </viewController>

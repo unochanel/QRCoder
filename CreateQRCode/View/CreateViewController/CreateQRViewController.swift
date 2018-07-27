@@ -43,6 +43,7 @@ class CreateQRViewController: UIViewController {
             .withLatestFrom(output.qrCodeImage)
             .drive(onNext: { [weak self] image in
                 guard let wself = self else { return }
+                //TODO: Alert表示
                 wself.qrImageView.image = image
             })
             .disposed(by: disposeBag)
@@ -54,6 +55,7 @@ class CreateQRViewController: UIViewController {
                 let viewController = ReaderViewController.make()
                 wself.present(viewController, animated: true)
             })
+            .disposed(by: disposeBag)
     }
 }
 

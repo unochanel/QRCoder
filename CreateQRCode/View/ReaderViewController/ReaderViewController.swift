@@ -15,8 +15,8 @@ class ReaderViewController: UIViewController {
     private let disposeBag = DisposeBag()
     var viewModel: ReaderViewModel!
     
-    @IBOutlet weak var backButton: UIButton!
-    @IBOutlet weak var containerView: UIView!
+    @IBOutlet private weak var backButton: UIButton!
+    @IBOutlet private weak var containerView: UIView!
     
     lazy var qrCoder: QRCoder = {
         return QRCoder(delegate: self)
@@ -41,13 +41,13 @@ class ReaderViewController: UIViewController {
     
     private func bindViewModel() {
         let input = ReaderViewModel.Input(
-            backButtonDidTap: backButton.rx.tap.asDriver())
-        
+            backButtonDidTap: backButton.rx.tap.asDriver()
+        )
         let output = viewModel.build(input: input)
         
         output
             .dismissCreateQRViewController
-            .drive(onNext: { [weak self] _ in
+            .drive(onNext: { [weak self]  in
                 guard let wself = self else { return }
                 wself.dismiss(animated: true)
             })

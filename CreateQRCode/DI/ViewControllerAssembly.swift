@@ -16,7 +16,7 @@ final class ViewControllerAssembly: Assembly {
 
         container.register(CreateQRViewController.self) { resolver in
             let viewController = UIStoryboard.instantiateViewController(of: CreateQRViewController.self)
-            viewController.viewModel = resolver.resolve(CreateQRViewModel.self)!
+            viewController.viewModel = resolver.resolve(CreateQRViewModel.self, argument: Optional<QRCoderDelegate>.none)!
             return viewController
         }
 
@@ -24,6 +24,7 @@ final class ViewControllerAssembly: Assembly {
 
         container.register(ReaderViewController.self) { resolver in
             let viewController = UIStoryboard.instantiateViewController(of: ReaderViewController.self)
+            viewController.viewModel = resolver.resolve(ReaderViewModel.self)!
             return viewController
         }
     }

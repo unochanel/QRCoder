@@ -6,7 +6,6 @@
 //  Copyright © 2018年 ryouheiuno. All rights reserved.
 //
 
-import Foundation
 import RxCocoa
 import RxSwift
 

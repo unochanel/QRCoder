@@ -97,10 +97,10 @@
 			isa = PBXGroup;
 			children = (
 				A0426027210AA11000EB52DE /* ViewControllerAssembly.swift */,
-				A0426032210AA4E500EB52DE /* UIViewController.Container+Extension.swift */,
 				A042602C210AA31900EB52DE /* ViewModelAssembly.swift */,
 				A042602E210AA3AA00EB52DE /* UtilityAssembly.swift */,
 				A0426030210AA48B00EB52DE /* Container+Extension.swift */,
+				A0426032210AA4E500EB52DE /* UIViewController.Container+Extension.swift */,
 			);
 			path = DI;
 			sourceTree = "<group>";
