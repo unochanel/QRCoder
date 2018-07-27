@@ -21,6 +21,8 @@
 		A0426037210AB9C700EB52DE /* ReaderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0426036210AB9C700EB52DE /* ReaderViewController.swift */; };
 		A0426039210AB9D600EB52DE /* ReaderViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A0426038210AB9D600EB52DE /* ReaderViewController.storyboard */; };
 		A042603B210ABA4100EB52DE /* ReaderViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A042603A210ABA4100EB52DE /* ReaderViewModel.swift */; };
+		A0426078210AFA1000EB52DE /* Injectable.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0426077210AFA1000EB52DE /* Injectable.swift */; };
+		A042607A210AFA7500EB52DE /* InjectableViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0426079210AFA7500EB52DE /* InjectableViewModel.swift */; };
 		A05FF33B21096C95006C01CC /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A05FF33A21096C95006C01CC /* AppDelegate.swift */; };
 		A05FF33D21096C95006C01CC /* CreateQRViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A05FF33C21096C95006C01CC /* CreateQRViewController.swift */; };
 		A05FF34021096C95006C01CC /* CreateQRViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A05FF33E21096C95006C01CC /* CreateQRViewController.storyboard */; };
@@ -43,6 +45,8 @@
 		A0426036210AB9C700EB52DE /* ReaderViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReaderViewController.swift; sourceTree = "<group>"; };
 		A0426038210AB9D600EB52DE /* ReaderViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = ReaderViewController.storyboard; sourceTree = "<group>"; };
 		A042603A210ABA4100EB52DE /* ReaderViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReaderViewModel.swift; sourceTree = "<group>"; };
+		A0426077210AFA1000EB52DE /* Injectable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Injectable.swift; sourceTree = "<group>"; };
+		A0426079210AFA7500EB52DE /* InjectableViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InjectableViewModel.swift; sourceTree = "<group>"; };
 		A05FF33721096C95006C01CC /* CreateQRCode.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CreateQRCode.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A05FF33A21096C95006C01CC /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A05FF33C21096C95006C01CC /* CreateQRViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateQRViewController.swift; sourceTree = "<group>"; };
@@ -133,6 +137,15 @@
 			path = ReaderViewController;
 			sourceTree = "<group>";
 		};
+		A0426076210AF9F200EB52DE /* Protocol */ = {
+			isa = PBXGroup;
+			children = (
+				A0426077210AFA1000EB52DE /* Injectable.swift */,
+				A0426079210AFA7500EB52DE /* InjectableViewModel.swift */,
+			);
+			path = Protocol;
+			sourceTree = "<group>";
+		};
 		A05FF32E21096C95006C01CC = {
 			isa = PBXGroup;
 			children = (
@@ -156,6 +169,7 @@
 				A05FF33A21096C95006C01CC /* AppDelegate.swift */,
 				A0426026210AA0FB00EB52DE /* DI */,
 				A0426018210A997800EB52DE /* View */,
+				A0426076210AF9F200EB52DE /* Protocol */,
 				A0426029210AA22900EB52DE /* Extension */,
 				A0426019210A998900EB52DE /* Utility */,
 				A05FF34121096C99006C01CC /* Assets.xcassets */,
@@ -265,10 +279,12 @@
 				A042602D210AA31900EB52DE /* ViewModelAssembly.swift in Sources */,
 				A042602B210AA25500EB52DE /* UIStoryboard+Extension.swift in Sources */,
 				A0426033210AA4E500EB52DE /* UIViewController.Container+Extension.swift in Sources */,
+				A042607A210AFA7500EB52DE /* InjectableViewModel.swift in Sources */,
 				A042602F210AA3AA00EB52DE /* UtilityAssembly.swift in Sources */,
 				A0426025210A9D6D00EB52DE /* CreateQRViewModel.swift in Sources */,
 				A05FF33B21096C95006C01CC /* AppDelegate.swift in Sources */,
 				A0426028210AA11000EB52DE /* ViewControllerAssembly.swift in Sources */,
+				A0426078210AFA1000EB52DE /* Injectable.swift in Sources */,
 				A042603B210ABA4100EB52DE /* ReaderViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -414,7 +430,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = JUG749AXCX;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/Carthage/Build/iOS",
@@ -437,7 +453,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = JUG749AXCX;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/Carthage/Build/iOS",

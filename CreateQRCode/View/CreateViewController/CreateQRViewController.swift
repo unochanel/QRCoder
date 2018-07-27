@@ -1,5 +1,5 @@
 //
-//  ViewController.swift
+//  CreateQRViewController.swift
 //  CreateQRCode
 //
 //  Created by 宇野凌平 on 2018/07/26.

@@ -9,7 +9,7 @@
 import RxCocoa
 import RxSwift
 
-class ReaderViewModel {
+class ReaderViewModel: ViewModel {
     struct Input {
         let backButtonDidTap: Driver<Void>
     }

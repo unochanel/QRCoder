@@ -10,7 +10,7 @@ import UIKit
 import RxSwift
 import RxCocoa
 
-class CreateQRViewModel {
+final class CreateQRViewModel: InjectableViewModel {
     
     typealias Dependency = (
         QRCoderProtocol
@@ -19,7 +19,7 @@ class CreateQRViewModel {
     private let qrCoder: QRCoderProtocol
     
     init(dependency: Dependency) {
-        qrCoder = dependency
+        (qrCoder) = dependency
     }
     
     struct Input {
