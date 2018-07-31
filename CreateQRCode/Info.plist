@@ -41,5 +41,7 @@
 	</array>
     <key>NSCameraUsageDescription</key>
     <string>The camera is used by this app to process QR codes</string>
+    <key>NSPhotoLibraryAddUsageDescription</key>
+    <string> </string>
 </dict>
 </plist>

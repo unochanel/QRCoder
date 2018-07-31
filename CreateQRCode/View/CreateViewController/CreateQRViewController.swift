@@ -14,6 +14,7 @@ class CreateQRViewController: UIViewController {
     private let disposeBag = DisposeBag()
     var viewModel: CreateQRViewModel!
     
+    @IBOutlet private weak var pickedQRImageButton: UIButton!
     @IBOutlet private weak var urlTextField: UITextField!
     @IBOutlet private weak var qrImageView: UIImageView!
     @IBOutlet private weak var registerButton: UIButton!
@@ -33,6 +34,7 @@ class CreateQRViewController: UIViewController {
         let input = CreateQRViewModel.Input(
             registerButtonDidTap: registerButton.rx.tap.asDriver(),
             readerButtonDidTap: readerButton.rx.tap.asDriver(),
+            pickedQRImageButtonDidTap: pickedQRImageButton.rx.tap.asDriver(),
             urlTextFieldInput: urlTextField.rx.text.orEmpty.asDriver()
         )
         
@@ -56,6 +58,23 @@ class CreateQRViewController: UIViewController {
                 wself.present(viewController, animated: true)
             })
             .disposed(by: disposeBag)
+        
+        output
+            .presentImagePicker
+            .drive(onNext: { [weak self] in
+                guard let wself = self else { return }
+                let picker = UIImagePickerController()
+                picker.delegate = wself
+                picker.sourceType = UIImagePickerControllerSourceType.photoLibrary
+                picker.allowsEditing = true
+                wself.present(picker, animated: true)
+            })
+            .disposed(by: disposeBag)
+        
+        output
+            .readQRURL
+            .drive(urlTextField.rx.text)
+            .disposed(by: disposeBag)
     }
 }
 
@@ -63,6 +82,14 @@ extension CreateQRViewController: UITextFieldDelegate {
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         textField.resignFirstResponder()
         return true
+    }
+}
+
+extension CreateQRViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
+        let pickedImage = info[UIImagePickerControllerOriginalImage] as? UIImage
+        viewModel.qrImage.onNext(pickedImage!)
+        dismiss(animated: true)
     }
 }
 

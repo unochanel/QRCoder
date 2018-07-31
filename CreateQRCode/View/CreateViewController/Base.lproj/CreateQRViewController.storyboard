@@ -40,17 +40,23 @@
                                 <state key="normal" title="QRを読み込む"/>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text=" URLを入力する" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eAC-VA-HwQ">
-                                <rect key="frame" x="107" y="83" width="124" height="21"/>
+                                <rect key="frame" x="48" y="119" width="124" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GEu-U1-pkG">
+                                <rect key="frame" x="28" y="43" width="144" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="QRコードを選択する"/>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <connections>
+                        <outlet property="pickedQRImageButton" destination="GEu-U1-pkG" id="lW8-j8-9Az"/>
                         <outlet property="qrImageView" destination="xoy-C2-qed" id="4aF-sC-ijx"/>
                         <outlet property="readerButton" destination="gkK-CP-J8M" id="1w9-jZ-hQP"/>
                         <outlet property="registerButton" destination="qex-Ke-5Yf" id="P4m-0N-ce3"/>
