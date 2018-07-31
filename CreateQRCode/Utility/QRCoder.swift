@@ -18,12 +18,10 @@ protocol QRCoderProtocol {
     func startRunning()
     func stopRunning()
     func generate(from url: String) -> UIImage?
+    func scanQR(from view: UIImage) -> String?
 }
 
 final class QRCoder: NSObject, QRCoderProtocol {
-    
-    
-    
     private let captureSession = AVCaptureSession()
     private var videoPreviewLayer: AVCaptureVideoPreviewLayer? = nil
     private var delegate: QRCoderDelegate?
@@ -75,6 +73,19 @@ final class QRCoder: NSObject, QRCoderProtocol {
         }
         
         return UIImage(cgImage: cgImage)
+    }
+
+    func scanQR(from view: UIImage) -> String? {
+        let ciImage = CIImage(image: view)
+        let detector = CIDetector(ofType: CIDetectorTypeQRCode, context: nil, options: nil)
+        let features = detector?.features(in: ciImage!)
+        for feature in features as! [CIQRCodeFeature] {
+            guard feature.messageString != nil else {
+                return nil
+            }
+            return feature.messageString
+        }
+        return nil
     }
 }
 

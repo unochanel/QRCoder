@@ -11,6 +11,7 @@ import RxSwift
 import RxCocoa
 
 final class CreateQRViewModel: InjectableViewModel {
+    let qrImage = PublishSubject<UIImage>()
     
     typealias Dependency = (
         QRCoderProtocol
@@ -25,6 +26,7 @@ final class CreateQRViewModel: InjectableViewModel {
     struct Input {
         let registerButtonDidTap: Driver<Void>
         let readerButtonDidTap: Driver<Void>
+        let pickedQRImageButtonDidTap: Driver<Void>
         let urlTextFieldInput: Driver<String>
     }
     
@@ -32,6 +34,8 @@ final class CreateQRViewModel: InjectableViewModel {
         let qrCodeImage: Driver<UIImage>
         let createQRCodeImage: Driver<Void>
         let presentQRReaderViewController: Driver<Void>
+        let presentImagePicker: Driver<Void>
+        let readQRURL: Driver<String>
     }
     
     func build(input: Input) -> Output {
@@ -39,10 +43,16 @@ final class CreateQRViewModel: InjectableViewModel {
             .map(qrCoder.generate)
             .flatMap(Driver.from)
         
+        let qrImageInfo = qrImage
+            .map(qrCoder.scanQR)
+            .flatMap(Driver.from)
+
         return Output(
             qrCodeImage: qrCodeImage,
             createQRCodeImage: input.registerButtonDidTap,
-            presentQRReaderViewController: input.readerButtonDidTap
+            presentQRReaderViewController: input.readerButtonDidTap,
+            presentImagePicker: input.pickedQRImageButtonDidTap,
+            readQRURL: qrImageInfo.asDriver(onErrorJustReturn: "")
         )
     }
 }
