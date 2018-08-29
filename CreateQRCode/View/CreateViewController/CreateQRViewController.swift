@@ -75,6 +75,8 @@ class CreateQRViewController: UIViewController {
             .readQRURL
             .drive(urlTextField.rx.text)
             .disposed(by: disposeBag)
+
+        
     }
 }
 
@@ -89,7 +91,11 @@ extension CreateQRViewController: UIImagePickerControllerDelegate, UINavigationC
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
         let pickedImage = info[UIImagePickerControllerOriginalImage] as? UIImage
         viewModel.qrImage.onNext(pickedImage!)
-        dismiss(animated: true)
+        dismiss(animated: false, completion: { () in
+            let vc = R.storyboard.unkoStoryboard().instantiateInitialViewController()!
+            self.present(vc, animated: true)
+
+        })
     }
 }
 
